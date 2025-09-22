@@ -29,12 +29,13 @@ export default function Home() {
     })
 
     // 2. Define a submit handler.
-    function onSubmit(values: z.infer<typeof formSchema>) {
+    async function onSubmit(values: z.infer<typeof formSchema>) {
         // Do something with the form values.
         // ✅ This will be type-safe and validated.
         console.log(values)
 
-        fetch("/api/login", {method: 'POST',  body:JSON.stringify(values)})
+        let res = await fetch("/api/login", {method: 'POST',  body:JSON.stringify(values)})
+       let data = await res.json()
     }
 
     return (
