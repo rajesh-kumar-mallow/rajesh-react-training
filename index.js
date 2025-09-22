@@ -23,10 +23,10 @@ const validatePassword = (password) => {
     if (password.match(/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~`]/g)) {
         count++;
     }
-    if (count <= 3) {
-        return 'Weak';
-    } else if (count <= 6) {
+    if (count >=7) {
+        return 'Strong';
+    } else if (count >= 4) {
         return 'Medium';
     }
-    return 'Strong';
+    return 'Weak';
 }
